@@ -8,6 +8,6 @@ For loops
 While loops
 Abstract classes 
 Array Lists 
-#Lessons learned# BlackjackProject
+#Lessons learned
 * Enums can be used as parameters for objects and that they can be used in conjunction whit primitive values when creating objects. 
 * Maping / writing out what you want your program to do makes coding much simpler / more organized when working on more complex programs. 
