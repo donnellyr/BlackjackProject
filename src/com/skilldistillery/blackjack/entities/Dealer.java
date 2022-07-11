@@ -48,7 +48,7 @@ public class Dealer {
 		while(player.isBust() != true) {
 			System.out.println("Hit or Stay?");
 			choice = sc.nextLine();
-			if(choice.equals("Hit")) {
+			if(choice.toUpperCase().equals("HIT")) {
 				Hit();
 				player.displayHand();
 			}
