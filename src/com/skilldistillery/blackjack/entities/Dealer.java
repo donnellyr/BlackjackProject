@@ -18,67 +18,66 @@ public class Dealer {
 	}
 
 	public void playBlackJack() {
-		player.addCard(Deal());
-		dealer.addCard(Deal());
-		player.addCard(Deal());
-		dealer.addCard(Deal());
+		for (int i = 0; i < 2; i++) {
+			player.addCard(Deal());
+			dealer.addCard(Deal());
+		}
 		player.displayHand();
 		dealer.displayHandPre();
-		if(player.getHandValue() == 22 || dealer.getHandValue() == 22) {
+		if (player.getHandValue() == 22 || dealer.getHandValue() == 22) {
 			findWinner();
 		}
-		if(player.getHandValue() == 21 || dealer.getHandValue() == 21) {
+		if (player.getHandValue() == 21 || dealer.getHandValue() == 21) {
 			findWinner();
-		}
-		else {
-		playerChoice();	
-		if(player.isBust() != true) {
-			dealerLogic();			
-		}
-		findWinner();
+		} else {
+			playerChoice();
+			if (player.isBust() != true) {
+				dealerLogic();
+			}
+			findWinner();
 		}
 		player.displayHand();
 		dealer.displayHand();
 	}
 
-
 	private void playerChoice() {
 		String choice = "";
-		
-		while(player.isBust() != true) {
+
+		while (player.isBust() != true) {
 			System.out.println("Hit or Stay?");
 			choice = sc.nextLine();
-			if(choice.toUpperCase().equals("HIT")) {
+			if (choice.toUpperCase().equals("HIT")) {
 				Hit();
 				player.displayHand();
-			}
-			else {
+			} else {
 				break;
 			}
-			
+
 		}
 	}
+
 	private void dealerLogic() {
-		while(dealer.getHandValue() < 17) {
+		while (dealer.getHandValue() < 17) {
 			dealer.addCard(Deal());
 			System.out.println("Dealer hits");
 			dealer.displayHand();
 		}
 	}
+
 	private void findWinner() {
-		if(player.isBust()) {
+		if (player.isBust()) {
 			System.out.println("Bust, you lose");
 		}
-		if(dealer.isBust()) {
+		if (dealer.isBust()) {
 			System.out.println("Dealer busts, you win");
 		}
-		if(player.getHandValue() > dealer.getHandValue() && player.getHandValue() < 22) {
+		if (player.getHandValue() > dealer.getHandValue() && player.getHandValue() < 22) {
 			System.out.println("You Win");
 		}
-		if(player.getHandValue() < dealer.getHandValue() && dealer.isBust() != true) {
+		if (player.getHandValue() < dealer.getHandValue() && dealer.isBust() != true) {
 			System.out.println("You lose");
 		}
-		if(player.getHandValue()  == dealer.getHandValue()) {
+		if (player.getHandValue() == dealer.getHandValue()) {
 			System.out.println("Push");
 		}
 	}
@@ -86,18 +85,22 @@ public class Dealer {
 	public void newDeck() {
 		deckofcards.makeDeck();
 	}
+
 	public void Hit() {
 		player.addCard(Deal());
 	}
+
 	public void shuffleDeck() {
 		deck = deckofcards.shuffleDeck();
 	}
-public Card Deal() {
-	Card hit = deck.get(0);
-	deck.remove(0);
-return hit; 	
-}
-public void deckSize() {
-	System.out.println(deck.size());
-}
+
+	public Card Deal() {
+		Card hit = deck.get(0);
+		deck.remove(0);
+		return hit;
+	}
+
+	public void deckSize() {
+		System.out.println(deck.size());
+	}
 }
