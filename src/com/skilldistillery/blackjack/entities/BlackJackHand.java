@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlackJackHand extends Hand {
-private int handvalue;
 	public BlackJackHand(List<Card> hand) {
 		super(hand);
 		this.hand = hand;
@@ -14,7 +13,7 @@ private int handvalue;
 	
 	@Override
 	public int getHandValue() {
-		handvalue =0;
+		int handvalue =0;
 		for (Card card : hand) {
 			handvalue += card.getValue();
 		}

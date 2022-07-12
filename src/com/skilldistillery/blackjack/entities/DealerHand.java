@@ -3,7 +3,6 @@ package com.skilldistillery.blackjack.entities;
 import java.util.List;
 
 public class DealerHand extends Hand {
-	private int handvalue;
 
 	public DealerHand(List<Card> hand) {
 		super(hand);
@@ -15,7 +14,7 @@ public class DealerHand extends Hand {
 	}
 
 	public int getHandValue() {
-		handvalue =0;
+		int handvalue =0;
 		for (Card card : hand) {
 			handvalue += card.getValue();
 		}
